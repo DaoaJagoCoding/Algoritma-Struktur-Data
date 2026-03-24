@@ -184,24 +184,15 @@ void linked_list::run_queue(linked_list &list){
 
 //Menampilkan node terakhir yang diproses
 void linked_list::last_processed(linked_list &list){
-    if (!head) {
-        cout<<"List is empty\n\n"; 
+    if (!list.head) {
+        cout<<"No processed samples\n\n"; 
         return;
     }
-    Node* to_move = head;
-    head = head->next;
-    to_move->next = nullptr;
-
-    if (!list.head) {
-            list.head = to_move;
-    }else {
-            Node* temp = list.head;
-            while (temp->next) 
-            temp = temp->next;
-            temp->next = to_move;
-            cout<<"Last Processed Node : "<< temp->sample_name <<"\n\n";
-        }
-
+    Node* temp = list.head;
+    while (temp->next) {
+        temp = temp->next;
+    }
+    cout<<"Last Processed Node : "<< temp->sample_name <<"\n\n";
 }
 
 void main_menu(){
