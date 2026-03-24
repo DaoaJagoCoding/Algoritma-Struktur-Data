@@ -2,6 +2,7 @@
 #include <string>
 
 using namespace std;
+//Kelas untuk membuat dan menyimpan Node
 class Node {
     public:
     string sample_name;
@@ -14,6 +15,7 @@ class Node {
     }
 };
 
+//Kelas untuk linked list, semua program dari sini
 class linked_list{
     Node* head;
     public :
@@ -29,6 +31,8 @@ class linked_list{
     void display();
 
 };
+
+//User memasukkan nama sampel
 void linked_list::input_Node(){
     int n;
     string name;
@@ -49,6 +53,8 @@ void linked_list::input_Node(){
         add_Node(name);
     }
 }
+
+//Append node, menambah node, menambah sampel dari input
 void linked_list::add_Node(string data){
     Node* newNode = new Node(data);
     if (head == nullptr){
@@ -62,6 +68,7 @@ void linked_list::add_Node(string data){
     temp->next = newNode;
 }
 
+//Menampilkan queue
 void linked_list::display(){
     if (head == nullptr){
         cout<<"List is empty\n\n";
@@ -76,6 +83,7 @@ void linked_list::display(){
     cout<<"null\n\n";
 }
 
+//Menghapus sampel yang tidak diinginkan
 void linked_list::remove_Node(){
     if (head == nullptr) {
         cout << "List is empty\n\n";
@@ -140,6 +148,8 @@ void linked_list::remove_Node(){
     cout << temp->sample_name << " deleted\n\n";
     delete temp;
 }
+
+//Menjalankan queue, sampel paling awal dipindah ke processed Node
 void linked_list::run_queue(linked_list &list){
     int cycle;
     cout << "How many cycles : ";
@@ -171,6 +181,8 @@ void linked_list::run_queue(linked_list &list){
             }
         }
 }
+
+//Menampilkan node terakhir yang diproses
 void linked_list::last_processed(linked_list &list){
     if (!head) {
         cout<<"List is empty\n\n"; 
